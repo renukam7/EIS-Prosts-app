@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/userLayout"
+        android:background="@drawable/white_element_bg"
+        android:elevation="5dp"
+        android:layout_margin="10dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:id="@+id/imageView"
+            android:elevation="1dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:id="@+id/name"
+            android:textSize="18sp"
+            android:layout_below="@id/imageView"
+            android:layout_marginRight="60dp"
+            android:text="Restaurant Name"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/name"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="10dp"
+            android:textSize="14dp"
+            android:id="@+id/ratingText"
+            android:text="3.5"/>
+
+        <RatingBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/ratings"
+            android:layout_toRightOf="@+id/ratingText"
+            android:scaleX="1"
+            android:scaleY="1"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp"
+            android:isIndicator="true"
+            style="?android:attr/ratingBarStyleSmall"
+            android:theme="@style/RatingBar"
+            android:backgroundTint="@color/colorPrimary"
+            android:layout_below="@+id/name"/>
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:id="@+id/navigate"
+            android:layout_below="@id/imageView"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="5dp"
+            android:src="@drawable/navigate"
+            android:padding="10dp"/>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

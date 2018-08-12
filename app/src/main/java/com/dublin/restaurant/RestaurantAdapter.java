@@ -72,7 +72,7 @@ public class RestaurantAdapter extends BaseAdapter {
             ratings.setFocusable(false);
             ratings.setRating((float) obj.getDouble("rating"));
 
-            String url = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference="+obj.getJSONArray("photos").getJSONObject(0).getString("photo_reference")+"&sensor=false&key=AIzaSyBhA5Zpk8a9j0obu5LgS4gWZvYHGpYpN0g";
+            String url = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&maxheight=300&photoreference="+obj.getJSONArray("photos").getJSONObject(0).getString("photo_reference")+"&sensor=false&key=AIzaSyDc3QXM7OvzfTvmZb_tx1VF-phhCV3md-8";
 
             Glide.with(context)
                     .load(url)
@@ -80,12 +80,14 @@ public class RestaurantAdapter extends BaseAdapter {
                     .into(imageView);
 
             JSONObject object = obj.getJSONObject("geometry").getJSONObject("location");
-            navigate.setTag(object.getString("lat")+","+object.getString("lng"));
+            navigate.setTag(obj.getString("name")+","+obj.getString("vicinity")+"");
             navigate.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    String address = view.getTag().toString();
+                    address = address.replace('#','N');
                     Intent intent = new Intent(android.content.Intent.ACTION_VIEW,
-                            Uri.parse("geo:0,0?q="+view.getTag().toString()+""));
+                            Uri.parse("geo:0,0?q="+address));
                     context.startActivity(intent);
                 }
             });
